@@ -1,7 +1,26 @@
-// TODO: Implement the ProductFactory class using the Factory pattern
+import { ConcreteProductA, ConcreteProductB } from "./product";
 
 class ProductFactory {
-  // TODO: Implement the factory method that creates and returns Product instances
+  public createProduct(productType: string) {
+    switch (productType) {
+      case "A":
+        return new ConcreteProductA();
+      case "B":
+        return new ConcreteProductB();
+      default:
+        throw new Error(`Product: ${productType} is not supported yet.`);
+    }
+  }
 }
 
-export default ProductFactory;
+export function testFactory() {
+  console.log("Iteration 2: Implement a Factory");
+  const factory = new ProductFactory();
+
+  const productA = factory.createProduct("A");
+  const productB = factory.createProduct("B");
+
+  console.log(productA.operation()); // Output: "Result of ConcreteProductA."
+  console.log(productB.operation()); // Output: "Result of ConcreteProductB."
+  console.log("");
+}

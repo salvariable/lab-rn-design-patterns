@@ -1,4 +1,4 @@
-class SubsystemB {
+export class SubsystemB {
   public operationB1(): string {
     return "SubsystemB: operation B1.";
   }
